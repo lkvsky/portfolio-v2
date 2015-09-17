@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<title><%= title %></title>
+    	<meta name="description" content="Kyle Lucovsky's portfolio">
+    	<meta name="author" content="Kyle Lucovsky">
+    	<link href="stylesheets/main.css" rel="stylesheet">
+		</head>
+	<body>
+		<!-- load up svg elements -->
+    	<% include partials/svg.ejs %>
+
+		<section class="section hero">
+			<div class="logo">
+				<svg class="letter-k">
+					<use xlink:href="#k_shape" />
+				</svg>
+				<svg class="period first">
+					<use xlink:href="#small_triangle" />
+				</svg>
+				<svg class="letter-w">
+					<use xlink:href="#w_shape" />
+				</svg>
+				<svg class="period second">
+					<use xlink:href="#small_triangle" />
+				</svg>
+				<svg class="letter-l">
+					<use xlink:href="#l_shape" />
+				</svg>
+			</div>
+			<h2>iOS and web developer</h2>
+		</section>
+
+		<section class="section about">
+		</section>
+
+		<section class="section personal">
+    	</section>
+
+		<section class="section professional">
+    	</section>
+ 	</body>
+</html>

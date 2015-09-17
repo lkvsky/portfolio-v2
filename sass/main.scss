@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'LatoWebThin';
+    src: url('../fonts/Lato-Thin.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Thin.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/Lato-Thin.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Thin.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+$beige: #F0EEDF;
+$pink: #FE7C94;
+$blue: #A8D9FE;
+$green: #40CB9B;
+$orange: #F58F71;
+
+// base styles
+
+body {
+	margin: 0;
+	font-family: 'LatoWebThin', Helvetica, sans-serif;
+}
+
+body, h1, h2, h3, h4 {
+	color: $beige
+}
+
+h2 {
+	text-align: center;
+	margin: 10px 0 0;
+	font-size: 2rem;
+}
+
+.hide {
+	display: none;
+}
+
+// container styles
+.section {
+	margin: 0;
+	min-height: 360px;
+
+	&.hero {
+		background-color: $pink;
+	}
+
+	&.about {
+		background-color: $blue;
+	}
+
+	&.personal {
+		background-color: $green;
+	}
+
+	&.professional {
+		background-color: $orange;
+	}
+}
+
+// svg styles
+
+.logo {
+	margin: 0 auto;
+	width: 520px;
+	padding: 100px 0 0 0;
+
+	.period {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		bottom: 12px;
+
+		&.first {
+			left: 25px;
+		}
+
+		&.second {
+			left: -25px;
+		}
+	}
+
+	.letter-k {
+		width: 98px;
+	}
+
+	.letter-w {
+		width: 210px;
+	}
+
+	.letter-l {
+		width: 109px;
+	}
+}
+
+.icon-browser-action {
+	height: 16px;
+	width: 16px;
+
+	&.maximize {
+		fill: #85C33D;
+	}
+
+	&.minimize {
+		fill: #E6A935;
+	}
+
+	&.close {
+		fill: #E96E4C;
+	}
+}
