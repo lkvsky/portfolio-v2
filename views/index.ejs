@@ -30,7 +30,7 @@
 					<use xlink:href="#l_shape" />
 				</svg>
 			</div>
-			<h2>iOS and web developer</h2>
+			<h2>iOS and Web Developer</h2>
 		</section>
 
 		<section class="section about">
@@ -70,19 +70,92 @@
                     <use xlink:href="#iphone" />
                 </svg>
                 <div class="personal-apps">
-                    <div class="app-icon">
+                    <div class="app-icon" data-info="buttr">
                         <img src="img/buttr_icon.png" srcset="img/buttr_icon.png 1x, img/buttr_icon@2x.png 2x, img/buttr_icon@3x.png 3x"/>
                         <h3>Buttr</h3>
                     </div>
-                    <div class="app-icon">
+                    <div class="app-icon" data-info="500days">
                         <img src="img/kristin_icon.png" srcset="img/kristin_icon.png 1x, img/kristin_icon@2x.png 2x, img/kristin_icon@3x.png 3x"/>
                         <h3>500 Days</h3>
+                    </div>
+                    <div class="app-info collapsed">
+                        <a class="app-info-close" href="javascript:void(0)">
+                            <svg>
+                                <use xlink:href="#x_icon" />
+                            </svg>
+                        </a>
+                        <p class="hide" data-info="buttr">
+                            Buttr
+                        </p>
+                        <p class="hide" data-info="500days">
+                            500 days
+                        </p>
                     </div>
                 </div>
             </div>
     	</section>
 
 		<section class="section professional">
+            <div class="wrapper professional-wrapper">
+                <div class="browser">
+                    <div class="browser-actions">
+                        <svg class="icon-browser-action close">
+                            <use xlink:href="#browser_action" />
+                        </svg>
+                        <svg class="icon-browser-action minimize">
+                            <use xlink:href="#browser_action" />
+                        </svg>
+                        <svg class="icon-browser-action maximize">
+                            <use xlink:href="#browser_action" />
+                        </svg>
+                    </div>
+                    <div class="browser-address"></div>
+                    <div class="browser-window">
+                        <div class="jobs">
+                            <img class="job-icon" src="img/logo_gawker.png" srcset="img/logo_gawker.png 1x, img/logo_gawker@2x.png 2x, img/logo_gawker@3x.png 3x" />
+                            <img class="job-icon" src="img/logo_vimeo.png" srcset="img/logo_vimeo.png 1x, img/logo_vimeo@2x.png 2x, img/logo_vimeo@3x.png 3x" />
+                            <img class="job-icon" src="img/logo_appacademy.png" srcset="img/logo_appacademy.png 1x, img/logo_appacademy@2x.png 2x, img/logo_appacademy@3x.png 3x" />
+                            <img class="job-icon" src="img/logo_yahoo.png" srcset="img/logo_yahoo.png 1x, img/logo_yahoo@2x.png 2x, img/logo_yahoo@3x.png 3x" />
+                        </div>
+                    </div>
+                </div>
+            </div>
     	</section>
+        <script>
+            (function () {
+                function Portfolio() { }
+
+                Portfolio.prototype.init = function () {
+                    console.log(this);
+                    document.addEventListener('DOMContentLoaded', this.attachEvents.bind(this))
+                }
+
+                Portfolio.prototype.attachEvents = function () {
+                    var icons = document.getElementsByClassName('app-icon'),
+                        close = document.getElementsByClassName('app-info-close')[0];
+
+                    for (i = 0; i < icons.length; i++) {
+                        icons[i].addEventListener('click', this.openAppInfo.bind(this));
+                    }
+
+                    close.addEventListener('click', this.closeAppInfo.bind(this));
+                }
+
+                Portfolio.prototype.openAppInfo = function (evt) {
+                    var appInfo = document.getElementsByClassName('app-info')[0];
+
+                    appInfo.classList.remove('collapsed');
+                }
+
+                Portfolio.prototype.closeAppInfo = function (evt) {
+                    var appInfo = document.getElementsByClassName('app-info')[0];
+
+                    appInfo.classList.add('collapsed');
+                }
+
+                var portfolio = new Portfolio();
+                portfolio.init();
+            })()
+        </script>
  	</body>
 </html>

@@ -15,62 +15,9 @@ $pink: #FE7C94;
 $blue: #A8D9FE;
 $green: #40CB9B;
 $orange: #F58F71;
+$grey: #D3D3D3;
 
-// base styles
-
-body {
-	margin: 0;
-	font-family: 'LatoWebThin', Helvetica, sans-serif;
-	overflow-x: hidden;
-}
-
-body, h1, h2, h3, h4 {
-	color: $beige
-}
-
-h2 {
-	text-align: center;
-	margin: 10px 0 0;
-	font-size: 2rem;
-}
-
-.hide {
-	display: none;
-}
-
-// container styles
-
-.wrapper {
-	margin: 0 auto;
-	max-width: 940px;
-	position: relative;
-}
-
-.section {
-	margin: 0;
-	min-height: 360px;
-	position: relative;
-
-	&.hero {
-		background-color: $pink;
-	}
-
-	&.about {
-		background-color: $blue;
-	}
-
-	&.personal {
-		background-color: $green;
-		z-index: 2;
-	}
-
-	&.professional {
-		background-color: $orange;
-		z-index: 3;
-	}
-}
-
-// logo styles
+// animations
 
 @keyframes kDropIn {
 	0% {
@@ -127,69 +74,6 @@ h2 {
 	0%, 50% { opacity: 0; }
 	100% { opacity: 1; }
 }
-
-.logo {
-	margin: 0 auto;
-	width: 520px;
-	padding: 100px 0 0 0;
-
-	.period {
-		width: 30px;
-		height: 30px;
-		position: relative;
-		bottom: 12px;
-		animation-name: periodFadeIn;
-		animation-duration: 1s;
-		animation-iteration-count: 1;
-
-		&.first {
-			left: 25px;
-		}
-
-		&.second {
-			left: -25px;
-		}
-	}
-
-	.letter {
-		animation-duration: 0.5s;
-		animation-iteration-count: 1;
-	}
-
-	.letter-k {
-		width: 98px;
-		animation-name: kDropIn;
-	}
-
-	.letter-w {
-		width: 210px;
-		animation-name: wDropIn;
-	}
-
-	.letter-l {
-		width: 109px;
-		animation-name: lDropIn;
-	}
-}
-
-.icon-browser-action {
-	height: 16px;
-	width: 16px;
-
-	&.maximize {
-		fill: #85C33D;
-	}
-
-	&.minimize {
-		fill: #E6A935;
-	}
-
-	&.close {
-		fill: #E96E4C;
-	}
-}
-
-// landscape styles
 
 @keyframes cloudOne {
 	0% { left: -20%; }
@@ -283,6 +167,114 @@ h2 {
 	23% { opacity: 1; }
 	100% { left: 70% }
 }
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+// base styles
+
+body {
+	margin: 0;
+	font-family: 'LatoWebThin', Helvetica, sans-serif;
+	overflow-x: hidden;
+}
+
+body, h1, h2, h3, h4 {
+	color: $beige
+}
+
+h2 {
+	text-align: center;
+	margin: 10px 0 0;
+	font-size: 2rem;
+}
+
+.hide {
+	display: none;
+}
+
+// container styles
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 940px;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.section {
+	overflow: hidden;
+	margin: 0;
+	position: relative;
+
+	&.hero {
+		padding: 75px 0;
+		background-color: $pink;
+	}
+
+	&.about {
+		background-color: $blue;
+	}
+
+	&.personal {
+		background-color: $green;
+		z-index: 2;
+	}
+
+	&.professional {
+		background-color: $orange;
+		z-index: 3;
+	}
+}
+
+// logo styles
+
+.logo {
+	margin: 0 auto;
+	width: 520px;
+
+	.period {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		bottom: 12px;
+		animation-name: periodFadeIn;
+		animation-duration: 1s;
+		animation-iteration-count: 1;
+
+		&.first {
+			left: 25px;
+		}
+
+		&.second {
+			left: -25px;
+		}
+	}
+
+	.letter {
+		animation-duration: 0.5s;
+		animation-iteration-count: 1;
+	}
+
+	.letter-k {
+		width: 98px;
+		animation-name: kDropIn;
+	}
+
+	.letter-w {
+		width: 210px;
+		animation-name: wDropIn;
+	}
+
+	.letter-l {
+		width: 109px;
+		animation-name: lDropIn;
+	}
+}
+
+// landscape styles
 
 .clouds {
 	padding: 10px 0;
@@ -383,17 +375,53 @@ h2 {
 }
 
 .personal-apps {
-	width: 100%;
+	height: 310px;
+	width: 510px;
+	margin: 0 auto;
 	text-align: center;
+	position: relative;
+	top: 190px;
+}
+
+.app-info {
+	background-color: $beige;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: 0.3s all;
+	border: 2px solid $green;
+	border-bottom: none;
+	opacity: 1;
+
+	&.collapsed {
+		opacity: 0;
+		transform: scale(0, 0);
+	}
+}
+
+.app-info-close {
+    position: absolute;
+    text-decoration: none;
+    right: 10px;
+    top: 10px;
+
+    svg {
+    	height: 25px;
+    	width: 25px;
+    }
 }
 
 .app-icon {
 	display: inline-block;
-	position: relative;
-	top: 225px;
-	left: 15px;
 	margin-right: 30px;
 	width: 201px;
+	margin-top: 30px;
+
+	&:first-of-type {
+		margin-left: 30px;
+	}
 
 	img {
 		width: 201px;
@@ -405,9 +433,77 @@ h2 {
 	}
 }
 
+.browser {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+	top: 50px;
+}
+
+.browser-address {
+	background-color: $beige;
+	border: 13px solid $grey;
+	border-left: 97px solid $grey;
+	height: 50px;
+	box-sizing: border-box;
+	border-radius: 10px 10px 0 0;
+}
+
+.browser-window {
+	padding: 30px 0;
+	background-color: $beige;
+	margin-bottom: 50px;
+}
+
+.browser-actions {
+	position: absolute;
+    top: 18px;
+    left: 18px;
+}
+
+.icon-browser-action {
+	height: 16px;
+	width: 16px;
+
+	&.maximize {
+		fill: #85C33D;
+	}
+
+	&.minimize {
+		fill: #E6A935;
+	}
+
+	&.close {
+		fill: #E96E4C;
+	}
+}
+
+.jobs {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.job-icon {
+	vertical-align: text-top;
+	width: 300px;
+	margin: 10px;
+
+	&:nth-of-type(1), &:nth-of-type(2) {
+		vertical-align: text-bottom;
+	}
+}
+
+.professional-wrapper {
+	padding-bottom: 50px;
+}
+
 // media queries
 
 @media (max-width: 600px) {
+	h2 {
+		font-size: 1.5rem;
+	}
+
 	.clouds > * {
 		transform: scale(0.65, 0.65);
 	}
@@ -465,12 +561,22 @@ h2 {
 		}
 	}
 
+	.personal-apps {
+		left: 0;
+	    top: 70px;
+	    width: 204px;
+	    height: 352px;
+	}
+
 	.app-icon {
 		display: block;
 		width: 100px;
 		margin: 0 auto 30px;
-    	left: 0;
-    	top: 100px;
+
+		&:first-of-type {
+			padding-top: 30px;
+			margin-left: auto;
+		}
 
     	img {
     		width: 100px;
@@ -479,5 +585,9 @@ h2 {
     	h3 {
     		font-size: 1rem;
     	}
+	}
+
+	.app-info {
+		border-bottom: 2px solid $green;
 	}
 }
